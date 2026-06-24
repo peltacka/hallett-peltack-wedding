@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Andy & Ashley — 17 June 2027</title>
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Pinyon+Script&family=Cormorant+Garamond:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #D9D497;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 40px 16px;
+    }
+
+    .site {
+      background: #D9D497;
+      width: 100%;
+      max-width: 420px;
+      border: 0.5px solid rgba(61,43,34,0.2);
+      font-family: 'Courier Prime', monospace;
+      color: #3D2B22;
+    }
+
+    /* NAV */
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 24px;
+      border-bottom: 1px dashed rgba(72,100,133,0.4);
+    }
+    .nav-links { display: flex; gap: 14px; }
+    .nav-link {
+      font-size: 7px;
+      letter-spacing: 0.16em;
+      color: #3D2B22;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      text-transform: uppercase;
+      font-family: 'Courier Prime', monospace;
+    }
+    .nav-link.active {
+      border-bottom: 0.5px solid #3D2B22;
+      padding-bottom: 1px;
+    }
+
+    /* PAGES */
+    .page { display: none; }
+    .page.active { display: block; }
+
+    /* LAYOUT */
+    .receipt { padding: 32px; text-align: center; }
+    .inner { padding: 32px; position: relative; overflow: hidden; }
+
+    /* TYPE */
+    .dashed {
+      border: none;
+      border-top: 1px dashed rgba(72,100,133,0.5);
+      margin: 20px 0;
+    }
+    .tag {
+      font-size: 8px;
+      letter-spacing: 0.24em;
+      color: #486485;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .script {
+      font-family: 'Pinyon Script', cursive;
+      color: #3D2B22;
+      line-height: 1.1;
+    }
+    .serif-note {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 300;
+      font-size: 13px;
+      color: #3D2B22;
+      opacity: 0.5;
+      line-height: 1.85;
+    }
+
+    /* NAMES */
+    .name-wrap {
+      position: relative;
+      overflow: hidden;
+      height: 90px;
+      margin: 8px 0;
+    }
+    .name-ghost {
+      font-family: 'Pinyon Script', cursive;
+      color: #3D2B22;
+      white-space: nowrap;
+      position: absolute;
+      line-height: 1;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .name-real {
+      font-family: 'Pinyon Script', cursive;
+      color: #3D2B22;
+      white-space: nowrap;
+      position: relative;
+      z-index: 1;
+      line-height: 1;
+    }
+
+    /* RECEIPT ROWS */
+    .rrow {
+      display: flex;
+      justify-content: space-between;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      color: #3D2B22;
+      padding: 5px 0;
+      border-bottom: 1px dashed rgba(72,100,133,0.3);
+    }
+    .rrow:last-child { border: none; }
+    .muted { color: #486485; }
+
+    /* SUB-HEADS */
+    .sub-head {
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: 0.24em;
+      color: #486485;
+      margin: 24px 0 12px;
+      text-align: left;
+    }
+
+    /* PAGE GHOST */
+    .page-ghost {
+      font-family: 'Pinyon Script', cursive;
+      color: #3D2B22;
+      opacity: 0.06;
+      line-height: 0.9;
+      pointer-events: none;
+      position: absolute;
+      white-space: nowrap;
+    }
+
+    /* MONOGRAM */
+    .monogram { cursor: pointer; }
+  </style>
+</head>
+<body>
+<div class="site">
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="monogram" onclick="showPage('home')">
+      <svg width="24" height="32" viewBox="0 0 60 80" fill="none">
+        <ellipse cx="30" cy="40" rx="27" ry="37" stroke="#486485" stroke-width="1"/>
+        <ellipse cx="30" cy="40" rx="23" ry="33" stroke="#486485" stroke-width="0.4"/>
+        <line x1="30" y1="3" x2="30" y2="10" stroke="#486485" stroke-width="0.8"/>
+        <line x1="30" y1="70" x2="30" y2="77" stroke="#486485" stroke-width="0.8"/>
+        <line x1="4" y1="40" x2="9" y2="40" stroke="#486485" stroke-width="0.8"/>
+        <line x1="51" y1="40" x2="56" y2="40" stroke="#486485" stroke-width="0.8"/>
+        <circle cx="30" cy="3" r="1.4" fill="#486485"/>
+        <circle cx="30" cy="77" r="1.4" fill="#486485"/>
+        <text font-family="Pinyon Script, cursive" font-size="52" fill="#3D2B22" x="-2" y="60" letter-spacing="-10">AA</text>
+      </svg>
+    </div>
+    <div style="font-size:7px; letter-spacing:0.2em; color:#486485; opacity:0.6;">2027</div>
+    <div class="nav-links">
+      <button class="nav-link" onclick="showPage('details')">DETAILS</button>
+      <button class="nav-link" onclick="showPage('programme')">PROGRAMME</button>
+      <button class="nav-link" onclick="showPage('travel')">TRAVEL & MORE</button>
+    </div>
+  </nav>
+
+  <!-- HOME -->
+  <div class="page active" id="home">
+    <div class="receipt">
+      <span class="tag" style="margin-bottom:12px;">YOU ARE CORDIALLY INVITED TO THE WEDDING OF</span>
+
+      <div class="name-wrap">
+        <div class="name-ghost" style="font-size:68px; top:6px; opacity:0.08;">Andy & Ashley</div>
+        <div class="name-ghost" style="font-size:50px; top:28px; opacity:0.04;">Andy & Ashley</div>
+        <div class="name-real" style="font-size:58px; padding-top:16px; text-align:center;">Andy & Ashley</div>
+      </div>
+
+      <hr class="dashed">
+
+      <div style="margin:4px 0 16px;">
+        <span class="tag">DATE</span>
+        <div style="font-size:13px; font-weight:700; letter-spacing:0.16em; color:#3D2B22;">17 — JUNE — 2027</div>
+      </div>
+
+      <div style="margin-bottom:16px;">
+        <span class="tag">CEREMONY</span>
+        <div style="font-size:11px; letter-spacing:0.1em; color:#3D2B22;">Maroon Bells</div>
+        <div style="font-size:10px; letter-spacing:0.08em; color:#486485; margin-top:2px; opacity:0.7;">Aspen, Colorado</div>
+      </div>
+
+      <div style="margin-bottom:16px;">
+        <span class="tag">RECEPTION</span>
+        <div style="font-size:11px; letter-spacing:0.1em; color:#3D2B22;">TBD — Vrbo</div>
+        <div style="font-size:10px; letter-spacing:0.08em; color:#486485; margin-top:2px; opacity:0.7;">Aspen, Colorado</div>
+      </div>
+
+      <hr class="dashed">
+
+      <div style="font-size:9px; letter-spacing:0.14em; color:#486485; line-height:2.2; opacity:0.6;">
+        - - - - - - - - - - - - - - - - - - - - -<br>
+        <span style="color:#3D2B22; opacity:0.5;">WE CANNOT WAIT TO CELEBRATE WITH YOU</span><br>
+        - - - - - - - - - - - - - - - - - - - - -
+      </div>
+
+      <div style="margin-top:24px;">
+        <svg width="32" height="42" viewBox="0 0 60 80" fill="none" style="margin:0 auto; display:block; opacity:0.4;">
+          <ellipse cx="30" cy="40" rx="27" ry="37" stroke="#486485" stroke-width="0.6"/>
+          <ellipse cx="30" cy="40" rx="23" ry="33" stroke="#486485" stroke-width="0.3"/>
+          <line x1="30" y1="3" x2="30" y2="10" stroke="#486485" stroke-width="0.5"/>
+          <line x1="30" y1="70" x2="30" y2="77" stroke="#486485" stroke-width="0.5"/>
+          <circle cx="30" cy="3" r="1.2" fill="#486485"/>
+          <circle cx="30" cy="77" r="1.2" fill="#486485"/>
+          <line x1="4" y1="40" x2="9" y2="40" stroke="#486485" stroke-width="0.5"/>
+          <line x1="51" y1="40" x2="56" y2="40" stroke="#486485" stroke-width="0.5"/>
+          <text font-family="Pinyon Script, cursive" font-size="52" fill="#3D2B22" x="-2" y="60" letter-spacing="-10">AA</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- DETAILS -->
+  <div class="page" id="details">
+    <div class="inner">
+      <div class="page-ghost" style="font-size:90px; top:20px; left:-10px;">Details</div>
+      <div style="text-align:center; margin-bottom:20px; position:relative; z-index:1;">
+        <span class="tag">THE DETAILS</span>
+        <div class="script" style="font-size:48px; opacity:0.15;">Andy & Ashley</div>
+      </div>
+      <hr class="dashed">
+      <div style="position:relative; z-index:1;">
+        <div class="rrow"><span class="muted">DATE:</span><span>17 June 2027</span></div>
+        <div class="rrow"><span class="muted">TIME:</span><span>2:00 PM</span></div>
+        <div class="rrow"><span class="muted">CEREMONY:</span><span>Maroon Bells</span></div>
+        <div class="rrow"><span class="muted">LOCATION:</span><span>Aspen, Colorado</span></div>
+        <div class="rrow"><span class="muted">RECEPTION:</span><span>TBD — Vrbo</span></div>
+        <div class="rrow"><span class="muted">DRESS CODE:</span><span>Formal or Cocktail</span></div>
+      </div>
+      <hr class="dashed">
+      <div class="serif-note" style="text-align:center;">A personal note from Andy & Ashley can go here.</div>
+    </div>
+  </div>
+
+  <!-- PROGRAMME -->
+  <div class="page" id="programme">
+    <div class="inner">
+      <div class="page-ghost" style="font-size:90px; top:20px; left:-10px;">Programme</div>
+      <div style="text-align:center; margin-bottom:20px; position:relative; z-index:1;">
+        <span class="tag">THE PROGRAMME</span>
+        <div class="script" style="font-size:48px; opacity:0.15;">17 June 2027</div>
+      </div>
+      <hr class="dashed">
+      <div style="position:relative; z-index:1;">
+        <div class="rrow"><span class="muted">SHUTTLE:</span><span>TBD — Details to Follow</span></div>
+        <div class="rrow"><span class="muted">CEREMONY:</span><span>2:00 PM</span></div>
+        <div class="rrow"><span class="muted">COCKTAILS & NIBBLES:</span><span>4:30 PM</span></div>
+        <div class="rrow"><span class="muted">DINNER:</span><span>6:00 PM</span></div>
+        <div class="rrow"><span class="muted">RECEPTION:</span><span>TBD</span></div>
+        <div class="rrow"><span class="muted">LAST DANCE:</span><span>TBD</span></div>
+      </div>
+      <hr class="dashed">
+      <div class="serif-note" style="text-align:center;">
+        Dress code — your dress code<br>
+        Parking — any notes<br>
+        Questions — your@email.com
+      </div>
+    </div>
+  </div>
+
+  <!-- TRAVEL & MORE -->
+  <div class="page" id="travel">
+    <div class="inner">
+      <div class="page-ghost" style="font-size:90px; top:20px; left:-10px;">Travel</div>
+      <div style="text-align:center; margin-bottom:20px; position:relative; z-index:1;">
+        <span class="tag">ACCOMMODATIONS, TRAVEL & THINGS TO DO</span>
+      </div>
+      <hr class="dashed">
+      <div style="position:relative; z-index:1;">
+        <div class="sub-head">ACCOMMODATIONS</div>
+        <div class="rrow"><span class="muted">HOTEL NAME:</span><span>YOUR RATE</span></div>
+        <div class="rrow"><span class="muted">HOTEL NAME:</span><span>YOUR RATE</span></div>
+        <div style="margin-top:10px;" class="serif-note">Room block details or booking code here.</div>
+
+        <div class="sub-head">GETTING THERE</div>
+        <div class="rrow"><span class="muted">FLY INTO:</span><span>Denver Intl (DEN)</span></div>
+        <div class="rrow"><span class="muted">FROM DENVER:</span><span>~4 hrs by rental car</span></div>
+        <div class="rrow" style="display:block; padding: 8px 0;">
+          <span class="muted" style="display:block; margin-bottom:4px;">NOTE:</span>
+          <span style="font-size:9px; line-height:1.7; opacity:0.8;">Aspen/Pitkin County Airport (ASE) is closed April – November 2027 for runway safety improvements. Plan to fly into Denver.</span>
+        </div>
+
+        <div class="sub-head">THINGS TO DO</div>
+        <div class="rrow"><span class="muted">RESTAURANT:</span><span>YOUR CITY</span></div>
+        <div class="rrow"><span class="muted">ACTIVITY:</span><span>YOUR CITY</span></div>
+        <div class="rrow"><span class="muted">ATTRACTION:</span><span>YOUR CITY</span></div>
+        <div class="rrow"><span class="muted">ACTIVITY:</span><span>YOUR CITY</span></div>
+      </div>
+      <hr class="dashed">
+      <div style="text-align:center; font-size:9px; letter-spacing:0.14em; color:#486485; opacity:0.5;">- - - - - - - - - - - - - - - - - - - - -</div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  function showPage(id) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    const map = { details: 0, programme: 1, travel: 2 };
+    if (map[id] !== undefined) {
+      document.querySelectorAll('.nav-link')[map[id]].classList.add('active');
+    }
+    window.scrollTo(0, 0);
+  }
+</script>
+</body>
+</html>
