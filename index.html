@@ -38,15 +38,15 @@
     }
     .nav-links {
       display: flex;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
       justify-content: center;
-      gap: 10px 20px;
-      padding: 8px 24px 10px;
+      gap: 0;
+      padding: 8px 16px 10px;
       border-bottom: 1px dashed rgba(72,100,133,0.4);
     }
     .nav-link {
-      font-size: clamp(7px, 1vw, 11px);
-      letter-spacing: 0.16em;
+      font-size: clamp(6px, 0.85vw, 11px);
+      letter-spacing: 0.1em;
       color: #3D2B22;
       background: none;
       border: none;
@@ -155,6 +155,15 @@
       white-space: nowrap;
     }
 
+    /* NAV SEPARATOR */
+    .nav-sep {
+      font-size: clamp(6px, 0.85vw, 11px);
+      color: #486485;
+      opacity: 0.4;
+      padding: 0 6px;
+      align-self: center;
+    }
+
     /* PLACEHOLDER */
     .placeholder {
       text-align: center;
@@ -186,11 +195,17 @@
   </div>
   <nav class="nav-links">
     <button class="nav-link" onclick="showPage('home')">HOME</button>
+    <span class="nav-sep">·</span>
     <button class="nav-link" onclick="showPage('schedule')">SCHEDULE</button>
+    <span class="nav-sep">·</span>
     <button class="nav-link" onclick="showPage('travel')">TRAVEL</button>
+    <span class="nav-sep">·</span>
     <button class="nav-link" onclick="showPage('gallery')">GALLERY</button>
+    <span class="nav-sep">·</span>
     <button class="nav-link" onclick="showPage('thingstodo')">THINGS TO DO</button>
+    <span class="nav-sep">·</span>
     <button class="nav-link" onclick="showPage('faqs')">FAQs</button>
+    <span class="nav-sep">·</span>
     <button class="nav-link" onclick="showPage('registry')">REGISTRY</button>
   </nav>
 
