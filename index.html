@@ -155,7 +155,7 @@
 
   <!-- NAV -->
   <nav class="nav">
-    <div class="monogram" onclick="showPage('home')">
+    <div style="display:flex; align-items:center; gap:6px; cursor:pointer;" onclick="showPage('home')">
       <svg width="24" height="32" viewBox="0 0 60 80" fill="none">
         <ellipse cx="30" cy="40" rx="27" ry="37" stroke="#486485" stroke-width="1"/>
         <ellipse cx="30" cy="40" rx="23" ry="33" stroke="#486485" stroke-width="0.4"/>
@@ -167,8 +167,8 @@
         <circle cx="30" cy="77" r="1.4" fill="#486485"/>
         <text font-family="Pinyon Script, cursive" font-size="52" fill="#3D2B22" x="-2" y="60" letter-spacing="-10">AA</text>
       </svg>
+      <div style="font-size:clamp(7px, 1vw, 11px); letter-spacing:0.2em; color:#486485; opacity:0.6;">2027</div>
     </div>
-    <div style="font-size:7px; letter-spacing:0.2em; color:#486485; opacity:0.6;">2027</div>
     <div class="nav-links">
       <button class="nav-link" onclick="showPage('details')">DETAILS</button>
       <button class="nav-link" onclick="showPage('programme')">PROGRAMME</button>
