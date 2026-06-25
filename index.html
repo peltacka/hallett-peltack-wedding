@@ -27,14 +27,23 @@
     }
 
     /* NAV */
-    .nav {
+    .nav-top {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
-      padding: 10px 24px;
+      padding: 12px 24px 8px;
+      border-bottom: 1px dashed rgba(72,100,133,0.4);
+      gap: 8px;
+      cursor: pointer;
+    }
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px 20px;
+      padding: 8px 24px 10px;
       border-bottom: 1px dashed rgba(72,100,133,0.4);
     }
-    .nav-links { display: flex; gap: 14px; }
     .nav-link {
       font-size: clamp(7px, 1vw, 11px);
       letter-spacing: 0.16em;
@@ -146,34 +155,43 @@
       white-space: nowrap;
     }
 
-    /* MONOGRAM */
-    .monogram { cursor: pointer; }
+    /* PLACEHOLDER */
+    .placeholder {
+      text-align: center;
+      padding: 60px 32px;
+      font-size: clamp(8px, 1.1vw, 13px);
+      letter-spacing: 0.24em;
+      color: #486485;
+      opacity: 0.5;
+    }
   </style>
 </head>
 <body>
 <div class="site">
 
   <!-- NAV -->
-  <nav class="nav">
-    <div style="display:flex; align-items:center; gap:6px; cursor:pointer;" onclick="showPage('home')">
-      <svg width="24" height="32" viewBox="0 0 60 80" fill="none">
-        <ellipse cx="30" cy="40" rx="27" ry="37" stroke="#486485" stroke-width="1"/>
-        <ellipse cx="30" cy="40" rx="23" ry="33" stroke="#486485" stroke-width="0.4"/>
-        <line x1="30" y1="3" x2="30" y2="10" stroke="#486485" stroke-width="0.8"/>
-        <line x1="30" y1="70" x2="30" y2="77" stroke="#486485" stroke-width="0.8"/>
-        <line x1="4" y1="40" x2="9" y2="40" stroke="#486485" stroke-width="0.8"/>
-        <line x1="51" y1="40" x2="56" y2="40" stroke="#486485" stroke-width="0.8"/>
-        <circle cx="30" cy="3" r="1.4" fill="#486485"/>
-        <circle cx="30" cy="77" r="1.4" fill="#486485"/>
-        <text font-family="Pinyon Script, cursive" font-size="52" fill="#3D2B22" x="-2" y="60" letter-spacing="-10">AA</text>
-      </svg>
-      <div style="font-size:clamp(7px, 1vw, 11px); letter-spacing:0.2em; color:#486485; opacity:0.6;">2027</div>
-    </div>
-    <div class="nav-links">
-      <button class="nav-link" onclick="showPage('details')">DETAILS</button>
-      <button class="nav-link" onclick="showPage('programme')">PROGRAMME</button>
-      <button class="nav-link" onclick="showPage('travel')">TRAVEL & MORE</button>
-    </div>
+  <div class="nav-top" onclick="showPage('home')">
+    <svg width="24" height="32" viewBox="0 0 60 80" fill="none">
+      <ellipse cx="30" cy="40" rx="27" ry="37" stroke="#486485" stroke-width="1"/>
+      <ellipse cx="30" cy="40" rx="23" ry="33" stroke="#486485" stroke-width="0.4"/>
+      <line x1="30" y1="3" x2="30" y2="10" stroke="#486485" stroke-width="0.8"/>
+      <line x1="30" y1="70" x2="30" y2="77" stroke="#486485" stroke-width="0.8"/>
+      <line x1="4" y1="40" x2="9" y2="40" stroke="#486485" stroke-width="0.8"/>
+      <line x1="51" y1="40" x2="56" y2="40" stroke="#486485" stroke-width="0.8"/>
+      <circle cx="30" cy="3" r="1.4" fill="#486485"/>
+      <circle cx="30" cy="77" r="1.4" fill="#486485"/>
+      <text font-family="Pinyon Script, cursive" font-size="52" fill="#3D2B22" x="-2" y="60" letter-spacing="-10">AA</text>
+    </svg>
+    <div style="font-size:clamp(7px, 1vw, 11px); letter-spacing:0.2em; color:#486485; opacity:0.6;">2027</div>
+  </div>
+  <nav class="nav-links">
+    <button class="nav-link" onclick="showPage('home')">HOME</button>
+    <button class="nav-link" onclick="showPage('schedule')">SCHEDULE</button>
+    <button class="nav-link" onclick="showPage('travel')">TRAVEL</button>
+    <button class="nav-link" onclick="showPage('gallery')">GALLERY</button>
+    <button class="nav-link" onclick="showPage('thingstodo')">THINGS TO DO</button>
+    <button class="nav-link" onclick="showPage('faqs')">FAQs</button>
+    <button class="nav-link" onclick="showPage('registry')">REGISTRY</button>
   </nav>
 
   <!-- HOME -->
@@ -208,7 +226,7 @@
 
       <hr class="dashed">
 
-      <div style="font-size:9px; letter-spacing:0.14em; color:#486485; line-height:2.2; opacity:0.6;">
+      <div style="font-size:clamp(8px, 1.1vw, 13px); letter-spacing:0.14em; color:#486485; line-height:2.2; opacity:0.6;">
         - - - - - - - - - - - - - - - - - - - - -<br>
         <span style="color:#3D2B22; opacity:0.5;">WE CANNOT WAIT TO CELEBRATE WITH YOU</span><br>
         - - - - - - - - - - - - - - - - - - - - -
@@ -230,34 +248,12 @@
     </div>
   </div>
 
-  <!-- DETAILS -->
-  <div class="page" id="details">
+  <!-- SCHEDULE -->
+  <div class="page" id="schedule">
     <div class="inner">
-      <div class="page-ghost" style="font-size:clamp(90px, 12vw, 160px); top:20px; left:-10px;">Details</div>
+      <div class="page-ghost" style="font-size:clamp(90px, 12vw, 160px); top:20px; left:-10px;">Schedule</div>
       <div style="text-align:center; margin-bottom:20px; position:relative; z-index:1;">
-        <span class="tag">THE DETAILS</span>
-        <div class="script" style="font-size:clamp(48px, 6.5vw, 90px); opacity:0.15;">Andy & Ashley</div>
-      </div>
-      <hr class="dashed">
-      <div style="position:relative; z-index:1;">
-        <div class="rrow"><span class="muted">DATE:</span><span>17 June 2027</span></div>
-        <div class="rrow"><span class="muted">TIME:</span><span>2:00 PM</span></div>
-        <div class="rrow"><span class="muted">CEREMONY:</span><span>Maroon Bells</span></div>
-        <div class="rrow"><span class="muted">LOCATION:</span><span>Aspen, Colorado</span></div>
-        <div class="rrow"><span class="muted">RECEPTION:</span><span>TBD — Vrbo</span></div>
-        <div class="rrow"><span class="muted">DRESS CODE:</span><span>Formal or Cocktail</span></div>
-      </div>
-      <hr class="dashed">
-      <div class="serif-note" style="text-align:center;">A personal note from Andy & Ashley can go here.</div>
-    </div>
-  </div>
-
-  <!-- PROGRAMME -->
-  <div class="page" id="programme">
-    <div class="inner">
-      <div class="page-ghost" style="font-size:clamp(90px, 12vw, 160px); top:20px; left:-10px;">Programme</div>
-      <div style="text-align:center; margin-bottom:20px; position:relative; z-index:1;">
-        <span class="tag">THE PROGRAMME</span>
+        <span class="tag">THE SCHEDULE</span>
         <div class="script" style="font-size:clamp(48px, 6.5vw, 90px); opacity:0.15;">17 June 2027</div>
       </div>
       <hr class="dashed">
@@ -271,19 +267,18 @@
       </div>
       <hr class="dashed">
       <div class="serif-note" style="text-align:center;">
-        Dress code — your dress code<br>
-        Parking — any notes<br>
+        Dress code — Formal or Cocktail<br>
         Questions — your@email.com
       </div>
     </div>
   </div>
 
-  <!-- TRAVEL & MORE -->
+  <!-- TRAVEL -->
   <div class="page" id="travel">
     <div class="inner">
       <div class="page-ghost" style="font-size:clamp(90px, 12vw, 160px); top:20px; left:-10px;">Travel</div>
       <div style="text-align:center; margin-bottom:20px; position:relative; z-index:1;">
-        <span class="tag">ACCOMMODATIONS, TRAVEL & THINGS TO DO</span>
+        <span class="tag">TRAVEL & ACCOMMODATIONS</span>
       </div>
       <hr class="dashed">
       <div style="position:relative; z-index:1;">
@@ -297,17 +292,91 @@
         <div class="rrow"><span class="muted">FROM DENVER:</span><span>~4 hrs by rental car</span></div>
         <div class="rrow" style="display:block; padding: 8px 0;">
           <span class="muted" style="display:block; margin-bottom:4px;">NOTE:</span>
-          <span style="font-size:9px; line-height:1.7; opacity:0.8;">Aspen/Pitkin County Airport (ASE) is closed April – November 2027 for runway safety improvements. Plan to fly into Denver.</span>
+          <span style="font-size:clamp(9px, 1.2vw, 14px); line-height:1.7; opacity:0.8;">Aspen/Pitkin County Airport (ASE) is closed April – November 2027 for runway safety improvements. Plan to fly into Denver.</span>
         </div>
-
-        <div class="sub-head">THINGS TO DO</div>
-        <div class="rrow"><span class="muted">RESTAURANT:</span><span>YOUR CITY</span></div>
-        <div class="rrow"><span class="muted">ACTIVITY:</span><span>YOUR CITY</span></div>
-        <div class="rrow"><span class="muted">ATTRACTION:</span><span>YOUR CITY</span></div>
-        <div class="rrow"><span class="muted">ACTIVITY:</span><span>YOUR CITY</span></div>
       </div>
       <hr class="dashed">
-      <div style="text-align:center; font-size:9px; letter-spacing:0.14em; color:#486485; opacity:0.5;">- - - - - - - - - - - - - - - - - - - - -</div>
+      <div style="text-align:center; font-size:clamp(8px, 1.1vw, 13px); letter-spacing:0.14em; color:#486485; opacity:0.5;">- - - - - - - - - - - - - - - - - - - - -</div>
+    </div>
+  </div>
+
+  <!-- GALLERY -->
+  <div class="page" id="gallery">
+    <div class="inner">
+      <div class="page-ghost" style="font-size:clamp(90px, 12vw, 160px); top:20px; left:-10px;">Gallery</div>
+      <div style="text-align:center; margin-bottom:20px; position:relative; z-index:1;">
+        <span class="tag">GALLERY</span>
+        <div class="script" style="font-size:clamp(48px, 6.5vw, 90px); opacity:0.15;">Andy & Ashley</div>
+      </div>
+      <hr class="dashed">
+      <div class="placeholder">PHOTOS COMING SOON</div>
+    </div>
+  </div>
+
+  <!-- THINGS TO DO -->
+  <div class="page" id="thingstodo">
+    <div class="inner">
+      <div class="page-ghost" style="font-size:clamp(90px, 12vw, 160px); top:20px; left:-10px;">Aspen</div>
+      <div style="text-align:center; margin-bottom:20px; position:relative; z-index:1;">
+        <span class="tag">THINGS TO DO IN & AROUND ASPEN</span>
+      </div>
+      <hr class="dashed">
+      <div style="position:relative; z-index:1;">
+        <div class="sub-head">RESTAURANTS</div>
+        <div class="rrow"><span class="muted">NAME:</span><span>YOUR RECOMMENDATION</span></div>
+        <div class="rrow"><span class="muted">NAME:</span><span>YOUR RECOMMENDATION</span></div>
+
+        <div class="sub-head">ACTIVITIES</div>
+        <div class="rrow"><span class="muted">NAME:</span><span>YOUR RECOMMENDATION</span></div>
+        <div class="rrow"><span class="muted">NAME:</span><span>YOUR RECOMMENDATION</span></div>
+
+        <div class="sub-head">ATTRACTIONS</div>
+        <div class="rrow"><span class="muted">NAME:</span><span>YOUR RECOMMENDATION</span></div>
+        <div class="rrow"><span class="muted">NAME:</span><span>YOUR RECOMMENDATION</span></div>
+      </div>
+      <hr class="dashed">
+      <div style="text-align:center; font-size:clamp(8px, 1.1vw, 13px); letter-spacing:0.14em; color:#486485; opacity:0.5;">- - - - - - - - - - - - - - - - - - - - -</div>
+    </div>
+  </div>
+
+  <!-- FAQs -->
+  <div class="page" id="faqs">
+    <div class="inner">
+      <div class="page-ghost" style="font-size:clamp(90px, 12vw, 160px); top:20px; left:-10px;">FAQs</div>
+      <div style="text-align:center; margin-bottom:20px; position:relative; z-index:1;">
+        <span class="tag">FREQUENTLY ASKED QUESTIONS</span>
+        <div class="script" style="font-size:clamp(48px, 6.5vw, 90px); opacity:0.15;">Andy & Ashley</div>
+      </div>
+      <hr class="dashed">
+      <div style="position:relative; z-index:1;">
+        <div class="rrow" style="display:block; padding: 10px 0;">
+          <span class="muted" style="display:block; margin-bottom:6px;">Q: YOUR QUESTION HERE?</span>
+          <span style="font-size:clamp(11px, 1.5vw, 18px); line-height:1.7;">Your answer goes here.</span>
+        </div>
+        <div class="rrow" style="display:block; padding: 10px 0;">
+          <span class="muted" style="display:block; margin-bottom:6px;">Q: YOUR QUESTION HERE?</span>
+          <span style="font-size:clamp(11px, 1.5vw, 18px); line-height:1.7;">Your answer goes here.</span>
+        </div>
+        <div class="rrow" style="display:block; padding: 10px 0;">
+          <span class="muted" style="display:block; margin-bottom:6px;">Q: YOUR QUESTION HERE?</span>
+          <span style="font-size:clamp(11px, 1.5vw, 18px); line-height:1.7;">Your answer goes here.</span>
+        </div>
+      </div>
+      <hr class="dashed">
+      <div class="serif-note" style="text-align:center;">Still have questions? Reach us at your@email.com</div>
+    </div>
+  </div>
+
+  <!-- REGISTRY -->
+  <div class="page" id="registry">
+    <div class="inner">
+      <div class="page-ghost" style="font-size:clamp(90px, 12vw, 160px); top:20px; left:-10px;">Registry</div>
+      <div style="text-align:center; margin-bottom:20px; position:relative; z-index:1;">
+        <span class="tag">REGISTRY</span>
+        <div class="script" style="font-size:clamp(48px, 6.5vw, 90px); opacity:0.15;">Andy & Ashley</div>
+      </div>
+      <hr class="dashed">
+      <div class="placeholder">REGISTRY DETAILS COMING SOON</div>
     </div>
   </div>
 
@@ -318,10 +387,9 @@
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
     document.getElementById(id).classList.add('active');
-    const map = { details: 0, programme: 1, travel: 2 };
-    if (map[id] !== undefined) {
-      document.querySelectorAll('.nav-link')[map[id]].classList.add('active');
-    }
+    const ids = ['home','schedule','travel','gallery','thingstodo','faqs','registry'];
+    const idx = ids.indexOf(id);
+    if (idx !== -1) document.querySelectorAll('.nav-link')[idx].classList.add('active');
     window.scrollTo(0, 0);
   }
 </script>
