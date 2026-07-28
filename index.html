@@ -222,6 +222,27 @@
         <div class="name-real" style="font-size:clamp(58px, 8vw, 110px); padding-top:16px; text-align:center;">Andy & Ashley</div>
       </div>
 
+      <div style="margin: 16px 0; position: relative; z-index: 1;">
+        <div id="home-photo-placeholder" style="width:100%; max-width:520px; margin:0 auto; aspect-ratio:3/2; background:rgba(72,100,133,0.07); border:1px dashed rgba(72,100,133,0.3); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; cursor:pointer;" onclick="document.getElementById('home-photo-input').click()">
+          <span style="font-size:clamp(8px,1.1vw,13px); letter-spacing:0.2em; color:#486485; opacity:0.6;">ADD A PHOTO</span>
+          <span style="font-size:clamp(20px,3vw,36px); color:#486485; opacity:0.3;">+</span>
+        </div>
+        <img id="home-photo" src="" alt="Andy & Ashley" style="display:none; width:100%; max-width:520px; margin:0 auto; display:none; object-fit:cover; aspect-ratio:3/2;">
+        <input type="file" id="home-photo-input" accept="image/*" style="display:none;" onchange="
+          var file = this.files[0];
+          if (file) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+              var img = document.getElementById('home-photo');
+              img.src = e.target.result;
+              img.style.display = 'block';
+              document.getElementById('home-photo-placeholder').style.display = 'none';
+            };
+            reader.readAsDataURL(file);
+          }
+        ">
+      </div>
+
       <hr class="dashed">
 
       <div style="margin:4px 0 16px;">
