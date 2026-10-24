@@ -207,9 +207,9 @@
     <span class="nav-sep">·</span>
     <button class="nav-link" onclick="showPage('travel')">TRAVEL</button>
     <span class="nav-sep">·</span>
-    <button class="nav-link" onclick="showPage('gallery')">GALLERY</button>
+         <button class="nav-link" onclick="showPage('thingstodo')">THINGS TO DO</button>
     <span class="nav-sep">·</span>
-    <button class="nav-link" onclick="showPage('thingstodo')">THINGS TO DO</button>
+    <button class="nav-link" onclick="showPage('gallery')">GALLERY</button>
     <span class="nav-sep">·</span>
     <button class="nav-link" onclick="showPage('faqs')">FAQs</button>
     <span class="nav-sep">·</span>
@@ -435,7 +435,7 @@
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
     document.getElementById(id).classList.add('active');
-    const ids = ['home','schedule','travel','gallery','thingstodo','faqs','registry'];
+    const ids = ['home','schedule','travel','thingstodo','gallery','faqs','registry'];
     const idx = ids.indexOf(id);
     if (idx !== -1) document.querySelectorAll('.nav-link')[idx].classList.add('active');
     window.scrollTo(0, 0);
